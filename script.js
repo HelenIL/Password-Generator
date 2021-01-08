@@ -105,7 +105,7 @@ function generatePassword() {
     passGen.push(pickOpt);
   }
    
-  var pw = password.join("");
+  var pw = generatePassword();
   UserInput(pw);
   return pw;
 
@@ -120,4 +120,4 @@ function generatePassword() {
 }
 
 // Add event listener to generate button
-//generateBtn.addEventListener("click", writePassword);
+//generateBtn.addEventListener("click", writePassword)
