@@ -20,10 +20,10 @@ letter2 = letter.map(toUpper);
 
 
 
-//var generatePassword = document.querySelector("#generate");
+var get = document.querySelector("#generate");
 //var passwordText = document.querySelector("#password");
 
-// Write password to the #password input
+// Generate password starting function
 function generatePassword() {
   charLength = parseInt(prompt("Choose between 8 and 128 characters for your password." ));
   if (!charLength) {
@@ -36,8 +36,57 @@ function generatePassword() {
     yesUpper = confirm("Would you like to include uppercase letters?");
     yesLower = confirm("Would you like to include lowercase letters?");
   };
-  
-  
+   
+  //4 false choices Else statement
+  if (!yesSpecial && !yesNumber && !yesUpper && !yesLower) {
+    pick = alert("Select at least 1 criteria!");
+  }
+  //4 true choices else/if statement
+  else if (yesSpecial && yesNumber && yesUpper && yesLower) {
+    pick = specialChar.concat(numberList, letter, letter2);
+  }
+  //3 true choices else/if statement
+  else if (yesSpecial && yesNumber && yesUpper) {
+    pick = specialChar.concat(numberList, letter2);
+  }
+  else if (yesSpecial && yesNumber && yesLower) {
+    pick = specialChar.concat(numberList, letter);
+  }
+  else if (yesSpecial && yesLower && yesUpper) {
+    pick = specialChar.concat(letter, letter2);
+  }
+  //2 true choices else/if statement
+  else if (yesSpecial && yesNumber) {
+    pick = specialChar.concat(numberList);
+  }
+  else if (yesSpecial && yesLower) {
+    pick = specialChar.concat(letter);
+  }
+  else if (yesSpecial && yesUpper) {
+    pick = specialChar.concat(letter2);
+  }
+  else if (yesLower && yesUpper) {
+    pick = letter.concat(letter2);
+  }
+  else if (yesLower && yesNumber) {
+    pick = letter.concat(numberList);
+  }
+  else if (yesUpper && yesNumber) {
+    pick = letter2.concat(numberList);
+  }
+  //1 true choice else/if statements
+  else if (yesSpecial) {
+    pick = specialChar;
+  }
+  else if (yesNumber) {
+    pick = numberList;
+  }
+  else if (yesUpper) {
+    pick = space.concat(letter2);
+  }
+  else if (yesLower) {
+    pick = letter;
+  }
   
   //var getNumber = confirm('Do you want numbers in you password?')
   //var getUpper = confirm('Do you want uppercase letters?') 
