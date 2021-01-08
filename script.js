@@ -21,7 +21,11 @@ letter2 = letter.map(toUpper);
 
 
 var get = document.querySelector("#generate");
-//var passwordText = document.querySelector("#password");
+
+get.addEventListener("click", function () {
+  pw = generatePassword();
+  document.getElementById("password").placeholder = pw;
+});
 
 // Generate password starting function
 function generatePassword() {
@@ -94,37 +98,24 @@ function generatePassword() {
   
 
    
+  var passGen = []; 
+
+  for (var i = 0; i < charLength; i++) {
+    var pickOpt = pick[Math.floor(Math.random() * pick.length)];
+    passGen.push(pickOpt);
+  }
+   
+  var pw = password.join("");
+  UserInput(pw);
+  return pw;
+
+  function UserInput(pw) {
+    document.getElementById("password").textContent = pw;
+  }
   
+
   
-  
 
-  if (getNumber) {
-    console.log("getNumber is true")
-    for(let i = 0;numberList.length > i; i++ ){
-        userPassword.push(numberList[i]); 
-    }
-    console.log(userPassword)
-
-  }
-
-  if (getUpper) {
-    console.log("upperLetter true")
-    for(let i = 0;upperLetter.length > i; i++ ){
-      userPassword.push(upperLetter[i]); 
-  }
-  }
-  if (getLower) {
-    console.log("getLower is true")
-    for(let i = 0;getLower.length > i; i++){
-      userPassword.push(numberList[i]);
-    }
-  }
-
-
-
-  passwordText.innerHTML = userPassword;
-  //passwordText.value = password;
-  console.log('my button is working ')
 
 }
 
